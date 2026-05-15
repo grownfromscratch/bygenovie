@@ -42,19 +42,13 @@
     const name     = params.get('name')      || '';
     const aesthetic = params.get('aesthetic') || '';
 
-    // Match however Tally sends the answer — check for "Soft" or "Dark"
-    const isSoft = aesthetic.toLowerCase().includes('soft');
-    const isDark = aesthetic.toLowerCase().includes('dark') || aesthetic.toLowerCase().includes('ambitious');
+    // Normalize the value — trim and lowercase for reliable matching
+    const a = aesthetic.trim().toLowerCase();
 
-    let destination;
-    if (isSoft) {
-      destination = 'style-soft.html';
-    } else if (isDark) {
-      destination = 'style-dark.html';
-    } else {
-      // Fallback — send to soft if something unexpected comes through
-      destination = 'style-soft.html';
-    }
+    // Match: plain "b", starts with "b", contains "dark" or "ambitious"
+    const isDark = a === 'b' || a.startsWith('b') || a.includes('dark') || a.includes('ambitious');
+
+    const destination = isDark ? 'style-dark.html' : 'style-soft.html';
 
     // Append the name so the landing page can personalize the prompt
     const target = `${destination}?name=${encodeURIComponent(name)}`;
