@@ -45,10 +45,19 @@
     // Normalize the value — trim and lowercase for reliable matching
     const a = aesthetic.trim().toLowerCase();
 
-    // Match: plain "b", starts with "b", contains "dark" or "ambitious"
+    // Explicitly match both A and B in all the ways Tally might send them
     const isDark = a === 'b' || a.startsWith('b') || a.includes('dark') || a.includes('ambitious');
+    const isSoft = a === 'a' || a.startsWith('a') || a.includes('soft') || a.includes('intentional');
 
-    const destination = isDark ? 'style-dark.html' : 'style-soft.html';
+    let destination;
+    if (isDark) {
+      destination = 'style-dark.html';
+    } else if (isSoft) {
+      destination = 'style-soft.html';
+    } else {
+      // True fallback — if nothing matches at all, default to soft
+      destination = 'style-soft.html';
+    }
 
     // Append the name so the landing page can personalize the prompt
     const target = `${destination}?name=${encodeURIComponent(name)}`;
