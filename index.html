@@ -228,6 +228,22 @@
       color: var(--muted);
     }
     .hero-right { position: relative; overflow: hidden; }
+    .hero-logo-wrap {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem;
+      opacity: 0;
+      animation: fadeIn 1.4s ease forwards 0.3s;
+    }
+    .hero-logo-img {
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      object-fit: contain;
+    }
     .hero-img-wrap {
       position: absolute; inset: 0;
       opacity: 0;
@@ -695,11 +711,8 @@
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-img-wrap">
-      <img class="hero-img"
-        src="https://images.unsplash.com/photo-1434030216411-0b793f4b6f97?w=1400&auto=format&fit=crop&q=80"
-        alt="Learning and growth"/>
-      <div class="hero-img-overlay"></div>
+    <div class="hero-logo-wrap">
+      <img class="hero-logo-img" src="logo.png" alt="Grown From Scratch by Genovie"/>
     </div>
   </div>
 </section>
@@ -835,14 +848,30 @@
     </div>
     <h2 class="section-title reveal">A portrait <em>grown</em> from<br/>memory, reflection, and love.</h2>
     <p class="md-body reveal">
-      Tell us about the mother in your life — her quiet habits, the way a room feels when she's in it, and everything special that reminds you of her — and we'll turn your words into a personalized prompt that generates a portrait unlike anything you could buy.
+      Tell us about the mother in your life — her quiet habits, her colors, the way a room feels when she's in it — and we'll turn your words into a personalized prompt that generates a portrait unlike anything you could buy.
     </p>
     <div class="md-buttons reveal">
       <a href="mothers-day.html" class="md-btn">
-        <span class="md-btn-icon">🌸</span>
+        <span class="md-btn-icon">🧒</span>
         <span class="md-btn-text">
-          <span class="md-btn-title">Choose the Prompt for the Woman You Love</span>
+          <span class="md-btn-title">From a Child to Mom</span>
           <span class="md-btn-sub">How you see her, in her own light</span>
+        </span>
+        <span class="md-btn-arrow">→</span>
+      </a>
+      <a href="mothers-day.html" class="md-btn">
+        <span class="md-btn-icon">👨</span>
+        <span class="md-btn-text">
+          <span class="md-btn-title">From a Father to the Mother of His Child</span>
+          <span class="md-btn-sub">The woman behind the mother</span>
+        </span>
+        <span class="md-btn-arrow">→</span>
+      </a>
+      <a href="mothers-day.html" class="md-btn">
+        <span class="md-btn-icon">👴👵</span>
+        <span class="md-btn-text">
+          <span class="md-btn-title">From a Grandchild to Grandma</span>
+          <span class="md-btn-sub">The love that shaped a whole generation</span>
         </span>
         <span class="md-btn-arrow">→</span>
       </a>
